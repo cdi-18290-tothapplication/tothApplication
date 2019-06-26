@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "document": "Document",
+        "ccp": "CCP",
+        "studient": "Studient",
+        "trainer": "Trainer",
+        "formation": "Formation",
+        "intervention": "Intervention",
+        "formationSession": "Formation Session",
+        "evaluation": "Evaluation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studient">
+            <h2><span jhiTranslate="tothApplicationApp.studient.detail.title">Studient</span> {{studient.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tothApplicationApp.studient.birthdate">Birthdate</span></dt>
+                <dd>
+                    <span>{{studient.birthdate}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.studient.user">User</span></dt>
+                <dd>
+                    {{studient.userId}}
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.studient.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="studient.photoId">
+                        <a [routerLink]="['/document', studient.photoId, 'view']">{{studient.photoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/studient', studient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

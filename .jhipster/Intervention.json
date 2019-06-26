@@ -1,0 +1,44 @@
+{
+    "name": "Intervention",
+    "fields": [
+        {
+            "fieldName": "begin",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "end",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "trainer",
+            "otherEntityRelationshipName": "intervention",
+            "relationshipName": "trainer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "formationSession",
+            "otherEntityRelationshipName": "intervention",
+            "relationshipName": "formationSession",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190626130424",
+    "entityTableName": "intervention",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

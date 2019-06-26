@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="evaluation">
+            <h2><span jhiTranslate="tothApplicationApp.evaluation.detail.title">Evaluation</span> {{evaluation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.date">Date</span></dt>
+                <dd>
+                    <span>{{evaluation.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.note">Note</span></dt>
+                <dd>
+                    <span>{{evaluation.note}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.commentary">Commentary</span></dt>
+                <dd>
+                    <span>{{evaluation.commentary}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.studient">Studient</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.studientId">
+                        <a [routerLink]="['/studient', evaluation.studientId, 'view']">{{evaluation.studientId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.trainer">Trainer</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.trainerId">
+                        <a [routerLink]="['/trainer', evaluation.trainerId, 'view']">{{evaluation.trainerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.evaluation.formationSession">Formation Session</span></dt>
+                <dd>
+                    <div *ngIf="evaluation.formationSessionId">
+                        <a [routerLink]="['/formation-session', evaluation.formationSessionId, 'view']">{{evaluation.formationSessionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/evaluation', evaluation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{
+    "name": "Formation",
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "desc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "formationSession",
+            "otherEntityRelationshipName": "formation",
+            "relationshipName": "sessions"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "cCP",
+            "otherEntityRelationshipName": "formation",
+            "relationshipName": "ccp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190626130423",
+    "entityTableName": "formation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

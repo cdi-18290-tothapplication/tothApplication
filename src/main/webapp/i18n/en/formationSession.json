@@ -1,0 +1,28 @@
+{
+  "tothApplicationApp": {
+    "formationSession": {
+      "home": {
+        "title": "Formation Sessions",
+        "createLabel": "Create a new Formation Session",
+        "createOrEditLabel": "Create or edit a Formation Session",
+        "notFound": "No Formation Session found"
+      },
+      "created": "A new Formation Session is created with identifier {{ param }}",
+      "updated": "A Formation Session is updated with identifier {{ param }}",
+      "deleted": "A Formation Session is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Formation Session {{ id }}?"
+      },
+      "detail": {
+        "title": "Formation Session"
+      },
+      "begin": "Begin",
+      "end": "End",
+      "evaluation": "Evaluation",
+      "studients": "Studients",
+      "documents": "Documents",
+      "formation": "Formation",
+      "intervention": "Intervention"
+    }
+  }
+}

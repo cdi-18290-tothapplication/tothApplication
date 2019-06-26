@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="intervention">
+            <h2><span jhiTranslate="tothApplicationApp.intervention.detail.title">Intervention</span> {{intervention.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tothApplicationApp.intervention.begin">Begin</span></dt>
+                <dd>
+                    <span>{{intervention.begin}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.intervention.end">End</span></dt>
+                <dd>
+                    <span>{{intervention.end}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.intervention.trainer">Trainer</span></dt>
+                <dd>
+                    <div *ngIf="intervention.trainerId">
+                        <a [routerLink]="['/trainer', intervention.trainerId, 'view']">{{intervention.trainerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.intervention.formationSession">Formation Session</span></dt>
+                <dd>
+                    <div *ngIf="intervention.formationSessionId">
+                        <a [routerLink]="['/formation-session', intervention.formationSessionId, 'view']">{{intervention.formationSessionId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/intervention', intervention.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

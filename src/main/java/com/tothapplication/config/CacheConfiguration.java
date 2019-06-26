@@ -43,6 +43,22 @@ public class CacheConfiguration {
             createCache(cm, com.tothapplication.domain.User.class.getName());
             createCache(cm, com.tothapplication.domain.Authority.class.getName());
             createCache(cm, com.tothapplication.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.tothapplication.domain.Document.class.getName());
+            createCache(cm, com.tothapplication.domain.CCP.class.getName());
+            createCache(cm, com.tothapplication.domain.CCP.class.getName() + ".documents");
+            createCache(cm, com.tothapplication.domain.Studient.class.getName());
+            createCache(cm, com.tothapplication.domain.Trainer.class.getName());
+            createCache(cm, com.tothapplication.domain.Trainer.class.getName() + ".interventions");
+            createCache(cm, com.tothapplication.domain.Formation.class.getName());
+            createCache(cm, com.tothapplication.domain.Formation.class.getName() + ".sessions");
+            createCache(cm, com.tothapplication.domain.Formation.class.getName() + ".ccps");
+            createCache(cm, com.tothapplication.domain.Intervention.class.getName());
+            createCache(cm, com.tothapplication.domain.FormationSession.class.getName());
+            createCache(cm, com.tothapplication.domain.FormationSession.class.getName() + ".evaluations");
+            createCache(cm, com.tothapplication.domain.FormationSession.class.getName() + ".studients");
+            createCache(cm, com.tothapplication.domain.FormationSession.class.getName() + ".documents");
+            createCache(cm, com.tothapplication.domain.FormationSession.class.getName() + ".interventions");
+            createCache(cm, com.tothapplication.domain.Evaluation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

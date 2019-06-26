@@ -1,0 +1,36 @@
+{
+    "name": "Trainer",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "trainer",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "trainer",
+            "relationshipName": "evaluation",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "intervention",
+            "otherEntityRelationshipName": "trainer",
+            "relationshipName": "intervention"
+        }
+    ],
+    "changelogDate": "20190626130422",
+    "entityTableName": "trainer",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

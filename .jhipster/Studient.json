@@ -1,0 +1,43 @@
+{
+    "name": "Studient",
+    "fields": [
+        {
+            "fieldName": "birthdate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "studient",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "studient",
+            "relationshipName": "photo",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "studient",
+            "relationshipName": "evaluation",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190626130421",
+    "entityTableName": "studient",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

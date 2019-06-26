@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-intervention-heading" jhiTranslate="tothApplicationApp.intervention.home.createOrEditLabel">Create or edit a Intervention</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tothApplicationApp.intervention.begin" for="field_begin">Begin</label>
+                    <div class="input-group">
+                        <input id="field_begin" type="text" class="form-control" name="begin" ngbDatepicker  #beginDp="ngbDatepicker" formControlName="begin"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="beginDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('begin').invalid && (editForm.get('begin').dirty || editForm.get('begin').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('begin').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tothApplicationApp.intervention.end" for="field_end">End</label>
+                    <div class="input-group">
+                        <input id="field_end" type="text" class="form-control" name="end" ngbDatepicker  #endDp="ngbDatepicker" formControlName="end"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('end').invalid && (editForm.get('end').dirty || editForm.get('end').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('end').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tothApplicationApp.intervention.trainer" for="field_trainer">Trainer</label>
+                    <select class="form-control" id="field_trainer" name="trainer" formControlName="trainerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trainerOption.id" *ngFor="let trainerOption of trainers; trackBy: trackTrainerById">{{trainerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="tothApplicationApp.intervention.formationSession" for="field_formationSession">Formation Session</label>
+                    <select class="form-control" id="field_formationSession" name="formationSession" formControlName="formationSessionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="formationSessionOption.id" *ngFor="let formationSessionOption of formationsessions; trackBy: trackFormationSessionById">{{formationSessionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

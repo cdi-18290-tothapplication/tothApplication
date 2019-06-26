@@ -1,0 +1,28 @@
+{
+  "tothApplicationApp": {
+    "formationSession": {
+      "home": {
+        "title": "FormationSessions",
+        "createLabel": "Créer un nouveau Formation Session",
+        "createOrEditLabel": "Créer ou éditer un Formation Session",
+        "notFound": "Aucun Formation Session trouvé"
+      },
+      "created": "Un nouveau Formation Session a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Formation Session avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Formation Session avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Formation Session {{ id }} ?"
+      },
+      "detail": {
+        "title": "Formation Session"
+      },
+      "begin": "Begin",
+      "end": "End",
+      "evaluation": "Evaluation",
+      "studients": "Studients",
+      "documents": "Documents",
+      "formation": "Formation",
+      "intervention": "Intervention"
+    }
+  }
+}

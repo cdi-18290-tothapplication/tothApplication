@@ -1,0 +1,12 @@
+{
+  "tothApplicationApp": {
+    "TypeDocument": {
+      "null": "",
+      "COURSE": "COURSE",
+      "EXERCISE": "EXERCISE",
+      "ABSENCE": "ABSENCE",
+      "CV": "CV",
+      "PHOTO": "PHOTO"
+    }
+  }
+}

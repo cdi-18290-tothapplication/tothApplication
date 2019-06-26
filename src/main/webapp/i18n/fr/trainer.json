@@ -1,0 +1,24 @@
+{
+  "tothApplicationApp": {
+    "trainer": {
+      "home": {
+        "title": "Trainers",
+        "createLabel": "Créer un nouveau Trainer",
+        "createOrEditLabel": "Créer ou éditer un Trainer",
+        "notFound": "Aucun Trainer trouvé"
+      },
+      "created": "Un nouveau Trainer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Trainer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Trainer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Trainer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Trainer"
+      },
+      "user": "User",
+      "evaluation": "Evaluation",
+      "intervention": "Intervention"
+    }
+  }
+}

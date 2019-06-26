@@ -1,0 +1,25 @@
+{
+  "tothApplicationApp": {
+    "studient": {
+      "home": {
+        "title": "Studients",
+        "createLabel": "Create a new Studient",
+        "createOrEditLabel": "Create or edit a Studient",
+        "notFound": "No Studient found"
+      },
+      "created": "A new Studient is created with identifier {{ param }}",
+      "updated": "A Studient is updated with identifier {{ param }}",
+      "deleted": "A Studient is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Studient {{ id }}?"
+      },
+      "detail": {
+        "title": "Studient"
+      },
+      "birthdate": "Birthdate",
+      "user": "User",
+      "photo": "Photo",
+      "evaluation": "Evaluation"
+    }
+  }
+}

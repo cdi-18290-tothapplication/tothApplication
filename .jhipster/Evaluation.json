@@ -1,0 +1,57 @@
+{
+    "name": "Evaluation",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentary",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "studient",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "studient",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "trainer",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "trainer",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "formationSession",
+            "otherEntityRelationshipName": "evaluation",
+            "relationshipName": "formationSession",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190626130426",
+    "entityTableName": "evaluation",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,23 @@
+{
+  "tothApplicationApp": {
+    "cCP": {
+      "home": {
+        "title": "CCPS",
+        "createLabel": "Créer un nouveau CCP",
+        "createOrEditLabel": "Créer ou éditer un CCP",
+        "notFound": "Aucun CCP trouvé"
+      },
+      "created": "Un nouveau CCP a été créé avec l'identifiant {{ param }}",
+      "updated": "Le CCP avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le CCP avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le CCP {{ id }} ?"
+      },
+      "detail": {
+        "title": "CCP"
+      },
+      "title": "Title",
+      "documents": "Documents"
+    }
+  }
+}

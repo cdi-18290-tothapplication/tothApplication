@@ -1,0 +1,65 @@
+{
+    "name": "FormationSession",
+    "fields": [
+        {
+            "fieldName": "begin",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "end",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "evaluation",
+            "otherEntityRelationshipName": "formationSession",
+            "relationshipName": "evaluation"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "studient",
+            "otherEntityRelationshipName": "formationSession",
+            "relationshipName": "studients",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "document",
+            "otherEntityRelationshipName": "formationSession",
+            "relationshipName": "documents",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "formation",
+            "otherEntityRelationshipName": "sessions",
+            "relationshipName": "formation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "intervention",
+            "otherEntityRelationshipName": "formationSession",
+            "relationshipName": "intervention"
+        }
+    ],
+    "changelogDate": "20190626130425",
+    "entityTableName": "formation_session",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formation">
+            <h2><span jhiTranslate="tothApplicationApp.formation.detail.title">Formation</span> {{formation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="tothApplicationApp.formation.label">Label</span></dt>
+                <dd>
+                    <span>{{formation.label}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.formation.desc">Desc</span></dt>
+                <dd>
+                    <span>{{formation.desc}}</span>
+                </dd>
+                <dt><span jhiTranslate="tothApplicationApp.formation.ccp">Ccp</span></dt>
+                <dd>
+                    <span *ngFor="let ccp of formation.ccps; let last = last">
+                        <a [routerLink]="['/ccp', ccp?.id, 'view' ]">{{ccp.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formation', formation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
