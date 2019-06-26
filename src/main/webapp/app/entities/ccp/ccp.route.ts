@@ -37,7 +37,7 @@ export const cCPRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_STAFF'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.cCP.home.title'
     },
@@ -50,7 +50,7 @@ export const cCPRoute: Routes = [
       cCP: CCPResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.cCP.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const cCPRoute: Routes = [
       cCP: CCPResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.cCP.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const cCPRoute: Routes = [
       cCP: CCPResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.cCP.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const cCPPopupRoute: Routes = [
       cCP: CCPResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.cCP.home.title'
     },
     canActivate: [UserRouteAccessService],

@@ -37,7 +37,7 @@ export const evaluationRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.evaluation.home.title'
     },
@@ -50,7 +50,7 @@ export const evaluationRoute: Routes = [
       evaluation: EvaluationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.evaluation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const evaluationRoute: Routes = [
       evaluation: EvaluationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.evaluation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const evaluationRoute: Routes = [
       evaluation: EvaluationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.evaluation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const evaluationPopupRoute: Routes = [
       evaluation: EvaluationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.evaluation.home.title'
     },
     canActivate: [UserRouteAccessService],

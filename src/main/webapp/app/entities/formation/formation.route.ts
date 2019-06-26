@@ -37,7 +37,7 @@ export const formationRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.formation.home.title'
     },
@@ -50,7 +50,7 @@ export const formationRoute: Routes = [
       formation: FormationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.formation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const formationRoute: Routes = [
       formation: FormationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.formation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const formationRoute: Routes = [
       formation: FormationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.formation.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const formationPopupRoute: Routes = [
       formation: FormationResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.formation.home.title'
     },
     canActivate: [UserRouteAccessService],

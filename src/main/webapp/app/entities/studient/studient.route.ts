@@ -37,7 +37,7 @@ export const studientRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_STAFF', 'ROLE_ADMIN', 'ROLE_STUDIENT', 'ROLE_TRAINER'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.studient.home.title'
     },
@@ -50,7 +50,7 @@ export const studientRoute: Routes = [
       studient: StudientResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_STAFF', 'ROLE_ADMIN', 'ROLE_STUDIENT', 'ROLE_TRAINER'],
       pageTitle: 'tothApplicationApp.studient.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const studientRoute: Routes = [
       studient: StudientResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_STAFF', 'ROLE_ADMIN', 'ROLE_STUDIENT', 'ROLE_TRAINER'],
       pageTitle: 'tothApplicationApp.studient.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const studientRoute: Routes = [
       studient: StudientResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_STAFF', 'ROLE_ADMIN', 'ROLE_STUDIENT', 'ROLE_TRAINER'],
       pageTitle: 'tothApplicationApp.studient.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const studientPopupRoute: Routes = [
       studient: StudientResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_STAFF', 'ROLE_ADMIN', 'ROLE_STUDIENT', 'ROLE_TRAINER'],
       pageTitle: 'tothApplicationApp.studient.home.title'
     },
     canActivate: [UserRouteAccessService],

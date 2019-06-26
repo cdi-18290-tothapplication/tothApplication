@@ -37,7 +37,7 @@ export const trainerRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.trainer.home.title'
     },
@@ -50,7 +50,7 @@ export const trainerRoute: Routes = [
       trainer: TrainerResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.trainer.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const trainerRoute: Routes = [
       trainer: TrainerResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.trainer.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const trainerRoute: Routes = [
       trainer: TrainerResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.trainer.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const trainerPopupRoute: Routes = [
       trainer: TrainerResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.trainer.home.title'
     },
     canActivate: [UserRouteAccessService],

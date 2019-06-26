@@ -37,7 +37,7 @@ export const interventionRoute: Routes = [
       pagingParams: JhiResolvePagingParams
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       defaultSort: 'id,asc',
       pageTitle: 'tothApplicationApp.intervention.home.title'
     },
@@ -50,7 +50,7 @@ export const interventionRoute: Routes = [
       intervention: InterventionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.intervention.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -62,7 +62,7 @@ export const interventionRoute: Routes = [
       intervention: InterventionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.intervention.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -74,7 +74,7 @@ export const interventionRoute: Routes = [
       intervention: InterventionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.intervention.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -89,7 +89,7 @@ export const interventionPopupRoute: Routes = [
       intervention: InterventionResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_ADMIN', 'ROLE_TRAINER', 'ROLE_STAFF'],
       pageTitle: 'tothApplicationApp.intervention.home.title'
     },
     canActivate: [UserRouteAccessService],
