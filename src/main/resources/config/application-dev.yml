@@ -119,3 +119,5 @@ jhipster:
 # ===================================================================
 
 # application:
+file:
+  upload-dir: /home/hebiezo/uploads/

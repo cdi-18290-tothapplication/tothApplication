@@ -2,8 +2,10 @@ package com.tothapplication.service;
 
 import com.tothapplication.service.dto.DocumentDTO;
 
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -43,4 +45,20 @@ public interface DocumentService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Stores de file relative to the "id" document.
+     *
+     * @param id the id of the entity.
+     * @param file bytearray recieved
+     */
+    String storeFile(Long id, MultipartFile file);
+
+
+    /**
+     * Delete the "id" document.
+     *
+     * @param id the id of the entity.
+     */
+    Resource loadFileAsResource(Long id);
 }

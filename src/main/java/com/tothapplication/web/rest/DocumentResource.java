@@ -1,5 +1,6 @@
 package com.tothapplication.web.rest;
 
+import com.tothapplication.domain.Document;
 import com.tothapplication.service.DocumentService;
 import com.tothapplication.web.rest.errors.BadRequestAlertException;
 import com.tothapplication.service.dto.DocumentDTO;
@@ -10,19 +11,25 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -126,5 +133,37 @@ public class DocumentResource {
         log.debug("REST request to delete Document : {}", id);
         documentService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @PostMapping("documents/{id}/upload")
+    public ResponseEntity<Document> uploadFile(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
+        documentService.storeFile(id, file);
+        return null;
+    }
+
+    @GetMapping(value="documents/{id}/download",produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<Resource> downloadFile(@PathVariable("id") Long id) throws IOException {
+        // Load file as Resource
+        Resource resource = documentService.loadFileAsResource(id);
+
+        // Try to determine file's content type
+        String contentType = null;
+        try {
+            contentType = Files.probeContentType(Paths.get(resource.getFile().getAbsolutePath()));
+        } catch (IOException ex) {
+            log.info("Could not determine file type.");
+        }
+
+        // Fallback to the default content type if type could not be determined
+        if(contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        log.info(resource.getFile().toString());
+
+        return ResponseEntity.ok()
+            .contentType(MediaType.parseMediaType(contentType))
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+            .body(resource);
     }
 }

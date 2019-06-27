@@ -3,6 +3,7 @@ package com.tothapplication;
 import com.tothapplication.config.ApplicationProperties;
 import com.tothapplication.config.DefaultProfileUtil;
 
+import com.tothapplication.config.FileStorageProperties;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @SpringBootApplication
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class, FileStorageProperties.class})
 public class TothApplicationApp implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(TothApplicationApp.class);
