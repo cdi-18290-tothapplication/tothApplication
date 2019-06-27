@@ -139,5 +139,8 @@
     "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !",
     "idnull": "Invalid ID"
   },
+  "file": {
+    "download": "Telecharger un fichier"
+  },
   "footer": "Ceci est votre pied de page"
 }

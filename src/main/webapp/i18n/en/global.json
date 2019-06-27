@@ -140,5 +140,8 @@
     "idexists": "A new {{ entityName }} cannot already have an ID",
     "idnull": "Invalid ID"
   },
+  "file": {
+    "download": "télecharger"
+  },
   "footer": "This is your footer"
 }
