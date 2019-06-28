@@ -13,6 +13,9 @@ export class UserMgmtUpdateComponent implements OnInit {
   languages: any[];
   authorities: any[];
   isSaving: boolean;
+  isTrainer: boolean;
+  isStaff: boolean;
+  isAdmin: boolean;
 
   editForm = this.fb.group({
     id: [null],
@@ -22,7 +25,11 @@ export class UserMgmtUpdateComponent implements OnInit {
     email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     activated: [true],
     langKey: [],
-    authorities: []
+    authorities: [],
+    authorities_noStudient: [],
+    isTrainer: false,
+    isStaff: false,
+    isAdmin: false
   });
 
   constructor(
@@ -57,7 +64,8 @@ export class UserMgmtUpdateComponent implements OnInit {
       email: user.email,
       activated: user.activated,
       langKey: user.langKey,
-      authorities: user.authorities
+      authorities: user.authorities,
+      authorities_noStudient: user.authorities
     });
   }
 
@@ -82,7 +90,16 @@ export class UserMgmtUpdateComponent implements OnInit {
     user.email = this.editForm.get(['email']).value;
     user.activated = this.editForm.get(['activated']).value;
     user.langKey = this.editForm.get(['langKey']).value;
-    user.authorities = this.editForm.get(['authorities']).value;
+    user.authorities = ['ROLE_USER'];
+    if (this.editForm.get(['authorities']).value === 'Studient') {
+      user.authorities.push('ROLE_STUDIENT');
+    } else if (this.isTrainer) {
+      user.authorities.push('ROLE_TRAINER');
+    } else if (this.isStaff) {
+      user.authorities.push('ROLE_STAFF');
+    } else if (this.isAdmin) {
+      user.authorities.push('ROLE_ADMIN');
+    }
   }
 
   private onSaveSuccess(result) {
