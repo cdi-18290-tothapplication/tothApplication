@@ -52,10 +52,12 @@ export class UserMgmtUpdateComponent implements OnInit {
     this.userService.authorities().subscribe(authorities => {
       this.authorities = authorities;
     });
-    this.isStudient = this.user.authorities.indexOf('ROLE_STUDIENT') !== -1;
-    this.isTrainer = this.user.authorities.indexOf('ROLE_TRAINER') !== -1;
-    this.isStaff = this.user.authorities.indexOf('ROLE_STAFF') !== -1;
-    this.isAdmin = this.user.authorities.indexOf('ROLE_ADMIN') !== -1;
+    if (this.user.authorities !== null) {
+      this.isStudient = this.user.authorities.indexOf('ROLE_STUDIENT') !== -1;
+      this.isTrainer = this.user.authorities.indexOf('ROLE_TRAINER') !== -1;
+      this.isStaff = this.user.authorities.indexOf('ROLE_STAFF') !== -1;
+      this.isAdmin = this.user.authorities.indexOf('ROLE_ADMIN') !== -1;
+    }
     this.languageHelper.getAll().then(languages => {
       this.languages = languages;
     });
