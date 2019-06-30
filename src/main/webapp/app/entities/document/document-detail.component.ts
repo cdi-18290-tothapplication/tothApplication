@@ -25,7 +25,23 @@ export class DocumentDetailComponent implements OnInit {
 
   download() {
     this.documentService.download(this.document.id).subscribe(next => {
-      console.log(next.headers.get('Content: '));
+      const blob = new Blob([next.body], { type: next.headers.get('content-type') });
+      const url = window.URL.createObjectURL(blob);
+      const downloadLink = document.createElement('a');
+      downloadLink.download = 'a';
+      downloadLink.href = url;
+      downloadLink.setAttribute('download', this.getFileNameFromHttpResponse(next));
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
     });
+  }
+
+  private getFileNameFromHttpResponse(httpResponse) {
+    const contentDispositionHeader = httpResponse.headers.get('Content-Disposition');
+    const result = contentDispositionHeader
+      .split(';')[1]
+      .trim()
+      .split('=')[1];
+    return result.replace(/"/g, '');
   }
 }

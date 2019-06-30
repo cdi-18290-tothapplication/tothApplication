@@ -1,8 +1,12 @@
 package com.tothapplication.service.dto;
 import javax.validation.constraints.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Objects;
 import com.tothapplication.domain.enumeration.TypeDocument;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * A DTO for the {@link com.tothapplication.domain.Document} entity.
@@ -19,7 +23,6 @@ public class DocumentDTO implements Serializable {
 
     @NotNull
     private String filename;
-
 
     public Long getId() {
         return id;
@@ -52,6 +55,7 @@ public class DocumentDTO implements Serializable {
     public void setFilename(String filename) {
         this.filename = filename;
     }
+
 
     @Override
     public boolean equals(Object o) {

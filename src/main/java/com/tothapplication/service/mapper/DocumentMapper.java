@@ -11,8 +11,6 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {})
 public interface DocumentMapper extends EntityMapper<DocumentDTO, Document> {
 
-
-
     default Document fromId(Long id) {
         if (id == null) {
             return null;

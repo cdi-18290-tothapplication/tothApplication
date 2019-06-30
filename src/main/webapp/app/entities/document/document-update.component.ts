@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -11,6 +11,8 @@ import { DocumentService } from './document.service';
   templateUrl: './document-update.component.html'
 })
 export class DocumentUpdateComponent implements OnInit {
+  fileToUpload: File = null;
+
   isSaving: boolean;
 
   editForm = this.fb.group({
@@ -48,7 +50,7 @@ export class DocumentUpdateComponent implements OnInit {
     if (document.id !== undefined) {
       this.subscribeToSaveResponse(this.documentService.update(document));
     } else {
-      this.subscribeToSaveResponse(this.documentService.create(document));
+      this.subscribeToSaveResponse(this.documentService.create(document, this.fileToUpload));
     }
   }
 
@@ -73,5 +75,10 @@ export class DocumentUpdateComponent implements OnInit {
 
   protected onSaveError() {
     this.isSaving = false;
+  }
+
+  getFile(event) {
+    this.fileToUpload = event.target.files[0];
+    this.editForm.get('filename').setValue(this.fileToUpload.name);
   }
 }
