@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
@@ -18,15 +18,11 @@ export class DocumentService {
 
   create(document: IDocument, data: File): Observable<EntityResponseType> {
     const formData = new FormData();
-    formData.append('file', data);
+    formData.set('title', document.title);
+    formData.set('type', document.type);
+    formData.set('file', data);
 
-    const doc = this.http.post(this.resourceUrl, document, { observe: 'response' }).subscribe(next => {
-      next.body;
-    });
-
-    console.log(doc);
-
-    return null;
+    return this.http.post(this.resourceUrl, formData, { observe: 'response' });
   }
 
   update(document: IDocument): Observable<EntityResponseType> {

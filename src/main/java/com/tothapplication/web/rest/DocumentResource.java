@@ -1,6 +1,7 @@
 package com.tothapplication.web.rest;
 
 import com.tothapplication.domain.Document;
+import com.tothapplication.domain.enumeration.TypeDocument;
 import com.tothapplication.service.DocumentService;
 import com.tothapplication.web.rest.errors.BadRequestAlertException;
 import com.tothapplication.service.dto.DocumentDTO;
@@ -55,17 +56,27 @@ public class DocumentResource {
     /**
      * {@code POST  /documents} : Create a new document.
      *
-     * @param documentDTO the documentDTO to create.
+     * @param title the documentDTO to create
+     * @param type the type of document
+     * @param file the file to upload
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new documentDTO, or with status {@code 400 (Bad Request)} if the document has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PostMapping(value="/documents")
-    public ResponseEntity<DocumentDTO> createDocument(@Valid @RequestBody DocumentDTO documentDTO, @RequestParam MultipartFile file) throws URISyntaxException {
+    @PostMapping(value="/documents", consumes = { "multipart/form-data" })
+    public ResponseEntity<DocumentDTO> createDocument(@RequestParam("title") String title,
+                                                      @RequestParam("type") TypeDocument type,
+                                                      @RequestParam("file") MultipartFile file) throws URISyntaxException {
+        DocumentDTO documentDTO = new DocumentDTO();
+        documentDTO.setFilename(file.getOriginalFilename());
+        documentDTO.setTitle(title);
+        documentDTO.setType(type);
         log.debug("REST request to save Document : {}", documentDTO);
         if (documentDTO.getId() != null) {
             throw new BadRequestAlertException("A new document cannot already have an ID", ENTITY_NAME, "idexists");
         }
         DocumentDTO result = documentService.save(documentDTO);
+        log.debug("File :" + file.getContentType());
+        documentService.storeFile(result.getId(), file);
         return ResponseEntity.created(new URI("/api/documents/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);

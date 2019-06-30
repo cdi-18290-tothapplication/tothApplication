@@ -48,7 +48,7 @@ describe('Service Tests', () => {
         );
         const expected = Object.assign({}, returnedFromService);
         service
-          .create(new Document(null))
+          .create(new Document(null), new File(null, 'test'))
           .pipe(take(1))
           .subscribe(resp => (expectedResult = resp));
         const req = httpMock.expectOne({ method: 'POST' });
