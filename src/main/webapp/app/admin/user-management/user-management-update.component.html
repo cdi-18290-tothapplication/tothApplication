@@ -99,41 +99,43 @@
                         </option>
                     </select>
                 </div>
-                
                 <!-- ----------------------------------------------------------------------------------------------------------------                -->
                 <div class="form-check">
                     <label class="form-check-label" for="Studient">
-                        <input class="form-check-input" [disabled]="user.id === null" type="radio" id="Studient" value="Studient"
-                            name="authorities" formControlName="authorities">
+                        <input class="form-check-input" [checked]="isStudient" type="radio" id="Studient"
+                            value="Studient" name="authorities" formControlName="authorities">
                         <span>Studient</span>
                     </label>
                 </div>
 
                 <div class="form-check">
                     <label class="form-check-label" for="Autre">
-                        <input class="form-check-input" [disabled]="user.id === null" type="radio" id="Autre" value="autre"
-                            name="authorities" formControlName="authorities">
+                        <input class="form-check-input" [disabled]="user.id === null" type="radio" id="Autre"
+                            value="autre" name="authorities" formControlName="authorities" [checked]='!isStudient'> 
                         <span>Autre</span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label" for="formateur">
-                        <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="formateur" (change)="isTrainer=!isTrainer"
-                            name="authorities_noStudient" formControlName="authorities_noStudient" >
+                    <label class="form-check-label" [hidden]="isStudientForm()" for="formateur">
+                        <input class="form-check-input" [hidden]="isStudientForm()" type="checkbox" id="formateur"
+                            (change)="isTrainer=!isTrainer" name="authorities_noStudient" [checked]='isTrainer'
+                            formControlName="authorities_noStudient">
                         <span>Formateur</span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label" for="staff">
-                        <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="staff" (change)="isStaff=!isStaff"
-                            name="authorities_noStudient" formControlName="authorities_noStudient" >
+                    <label class="form-check-label" [hidden]="isStudientForm()" for="staff">
+                        <input class="form-check-input" [hidden]="isStudientForm()" type="checkbox" id="staff"
+                            (change)="isStaff=!isStaff" name="authorities_noStudient" [checked]='isStaff'
+                            formControlName="authorities_noStudient">
                         <span>Staff</span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label" for="admin">
-                        <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="admin" (change)="isAdmin=!isAdmin"
-                            name="authorities_noStudient" formControlName="authorities_noStudient" >
+                    <label class="form-check-label" [hidden]="isStudientForm()" for="admin">
+                        <input class="form-check-input" [hidden]="isStudientForm()" type="checkbox" id="admin"
+                            (change)="isAdmin=!isAdmin" name="authorities_noStudient" [checked]='isAdmin'
+                            formControlName="authorities_noStudient">
                         <span>Admin</span>
                     </label>
                 </div>

@@ -16,6 +16,7 @@ export class UserMgmtUpdateComponent implements OnInit {
   isTrainer: boolean;
   isStaff: boolean;
   isAdmin: boolean;
+  isStudient: boolean;
 
   editForm = this.fb.group({
     id: [null],
@@ -27,6 +28,7 @@ export class UserMgmtUpdateComponent implements OnInit {
     langKey: [],
     authorities: [],
     authorities_noStudient: [],
+    isStudient: false,
     isTrainer: false,
     isStaff: false,
     isAdmin: false
@@ -50,6 +52,12 @@ export class UserMgmtUpdateComponent implements OnInit {
     this.userService.authorities().subscribe(authorities => {
       this.authorities = authorities;
     });
+    if (this.user.authorities !== null) {
+      this.isStudient = this.user.authorities.indexOf('ROLE_STUDIENT') !== -1;
+      this.isTrainer = this.user.authorities.indexOf('ROLE_TRAINER') !== -1;
+      this.isStaff = this.user.authorities.indexOf('ROLE_STAFF') !== -1;
+      this.isAdmin = this.user.authorities.indexOf('ROLE_ADMIN') !== -1;
+    }
     this.languageHelper.getAll().then(languages => {
       this.languages = languages;
     });
@@ -65,7 +73,11 @@ export class UserMgmtUpdateComponent implements OnInit {
       activated: user.activated,
       langKey: user.langKey,
       authorities: user.authorities,
-      authorities_noStudient: user.authorities
+      authorities_noStudient: user.authorities,
+      isStudient: this.isStudient,
+      isTrainer: this.isTrainer,
+      isStaff: this.isStaff,
+      isAdmin: this.isAdmin
     });
   }
 
@@ -93,13 +105,20 @@ export class UserMgmtUpdateComponent implements OnInit {
     user.authorities = ['ROLE_USER'];
     if (this.editForm.get(['authorities']).value === 'Studient') {
       user.authorities.push('ROLE_STUDIENT');
-    } else if (this.isTrainer) {
-      user.authorities.push('ROLE_TRAINER');
-    } else if (this.isStaff) {
-      user.authorities.push('ROLE_STAFF');
-    } else if (this.isAdmin) {
-      user.authorities.push('ROLE_ADMIN');
+    } else {
+      if (this.isTrainer) {
+        user.authorities.push('ROLE_TRAINER');
+      }
+      if (this.isStaff) {
+        user.authorities.push('ROLE_STAFF');
+      }
+      if (this.isAdmin) {
+        user.authorities.push('ROLE_ADMIN');
+      }
     }
+  }
+  private isStudientForm(): boolean {
+    return this.editForm.get(['authorities']).value === 'Studient';
   }
 
   private onSaveSuccess(result) {
